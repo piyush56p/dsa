@@ -1,0 +1,24 @@
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        if(head==NULL || head->next==NULL )
+        {
+            return false;
+        }
+        ListNode *low = head;
+        ListNode *high = head->next;
+        while(high!=NULL && high->next!=NULL )
+        {
+            if(low == high)
+            {
+                return true;
+            }
+            else
+            {
+                low = low->next;
+                high = high->next->next;
+            }
+        }
+        return false;
+    }
+};
