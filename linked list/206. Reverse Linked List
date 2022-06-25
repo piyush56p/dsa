@@ -1,0 +1,33 @@
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        if(head==NULL)
+        {
+            return NULL;
+        }
+        else if(head->next==NULL)
+        {
+            return head;
+        }
+        else
+        {
+           ListNode *previous=NULL;
+            ListNode *curr=head;
+            ListNode *temp=head->next;
+           
+            while(temp!=NULL)
+            {
+                curr->next = previous;
+                previous=curr;
+                curr=temp;
+                temp=temp->next;
+            }
+            curr->next = previous;
+             return curr;
+            }
+       
+       
+        
+            
+    }
+};
