@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int minDepth(TreeNode* root) {
+        int ldepth,rdepth;
+        if(root==NULL)
+        {
+            return 0;
+        }
+             ldepth = minDepth(root->left)+1;
+             rdepth = minDepth(root->right)+1;
+        if(ldepth==1)
+        {
+            return rdepth;
+        }
+        if(rdepth==1)
+        {
+            return ldepth;
+        }
+        else
+        {
+             int mini = min(ldepth,rdepth);
+            return mini;
+        }
+    }
+};
