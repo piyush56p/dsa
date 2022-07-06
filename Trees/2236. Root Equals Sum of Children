@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool checkTree(TreeNode* root) {
+        int sum=0;
+        if(root==NULL)
+        {
+            return true;
+        }
+        if(root->left)
+        {
+            sum = sum+root->left->val;
+        }
+        if(root->right)
+        {
+            sum = sum+root->right->val;
+        }
+        if(sum!=root->val)
+        {
+            return false;
+        }
+        checkTree(root->left);
+        checkTree(root->right);
+        return true;
+    }
+};
