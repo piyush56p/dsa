@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int calculate(vector<int> &cost,vector<int> &dp,int k)
+    {
+        int n=cost.size();
+        if(k>=n)
+        {
+            return 0;
+        }
+        if(dp[k]==-1)
+        {
+            dp[k] = cost[k] + min(calculate(cost,dp,k+1),calculate(cost,dp,k+2));
+        }
+        return dp[k];
+    }
+    int minCostClimbingStairs(vector<int>& cost) {
+       int n=cost.size()-1;
+        vector<int> dp(n+1,-1);
+        int ans = min(calculate(cost,dp,0),calculate(cost,dp,1));
+        return ans;
+    }
+};
